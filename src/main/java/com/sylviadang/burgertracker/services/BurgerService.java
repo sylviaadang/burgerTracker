@@ -1,6 +1,7 @@
 package com.sylviadang.burgertracker.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -25,4 +26,14 @@ public class BurgerService {
 		return burgerRepository.save(burger);
 	}
 	
+	public Burger findBurger(Long id) {
+			Optional<Burger> optionalBurger = burgerRepository.findById(id);
+			if (optionalBurger.isPresent()) {
+				return optionalBurger.get();
+		}
+		return null;
+	}
+	public Burger updateBurger(Burger burger) {
+		return burgerRepository.save(burger);
+	}
 }
